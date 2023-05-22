@@ -1,5 +1,5 @@
 module.exports = {
-  parser: "@babel/eslint",
+  parser: "@babel/eslint-parser",
   env: {
     browser: true,
     commonjs: true,
@@ -15,10 +15,11 @@ module.exports = {
     },
     sourceType: "module",
   },
-  plugins: ["react"],
+  plugins: ["react", "react-hooks"],
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
   ],
   settings: {
     react: {
@@ -26,13 +27,9 @@ module.exports = {
     },
   },
   rules: {
-    indent: ["error", 2, {SwitchCase: 1}],
-    "linebreak-style": ["error", "unix"],
-    quotes: ["error", "single"],
-    semi: ["error", "always"],
-    "no-console": [
-      "warn",
-      { allow: ["clear", "info", "error", "dir", "trace"]}
-    ]
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+
+    // You can do more rule customizations here...
   },
 };
